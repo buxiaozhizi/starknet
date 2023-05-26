@@ -1,1 +1,1 @@
-# starknet
+# 本仓库专为在starknet上撸毛的小白准备，涉及argentx和braavos钱包的开户脚本和奥德赛任务脚本，不定期更新，如果您在使用中遇到问题，或有新的需要可以在dm我的twitter或在我的推特上留言 https://twitter.com/buxiaozhizi
