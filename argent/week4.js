@@ -5,6 +5,7 @@ const { stark, Provider: StarkProvider, RpcProvider: StarkRpcProvider, ec: stark
 const { json2Obj, isEmpty, fs, fetch, sleep, wait } = require('../common/utils');//自己写的工具包，目前其中只引用了request、fs三方包
 
 let rpc;
+let week_ids;
 
 //获取账号合约数据，这里需要调用中心化服务器接口，如担心IP问题，可以在调用fetch时设置代理
 async function fetchCalldata(week_id, address) {
@@ -100,12 +101,6 @@ async function claims({ address, privateKey, weekTask = {} }) {
 
     const starkAccount = new StarkAccount(provider, address, starkEc.getKeyPair(privateKey));
 
-    //对应每周NFT领取的标识，数组中保留哪周的就对应只领这些周的，其他注释掉即可，默认只领第一周的
-    const week_ids = [
-        'fefacf00-12ab-475f-852b-1c7fea184442',//第一周
-        // '9265e0bc-ae7d-4ad2-9c51-ec93fd734bd0',//第二周
-        // 'c975d0b1-3990-45b5-82b5-3f60456baec2',//第三周
-    ];
     for (let i = nfts_balance, len = week_ids.length; i < len; i++) {
         const week_id = week_ids[i];
         //跳过已经领过的NFT
@@ -142,6 +137,13 @@ async function claims({ address, privateKey, weekTask = {} }) {
 (async () => {
     //这里不设置rpc时则使用官方rpc，可能会有IP记录，可自行从alchemy或infura申请rpc
     rpc = '';
+
+    //对应每周NFT领取的标识，数组中保留哪周的就对应只领这些周的，其他注释掉即可，默认只领第一周的
+    week_ids = [
+        'fefacf00-12ab-475f-852b-1c7fea184442',//第一周
+        // '9265e0bc-ae7d-4ad2-9c51-ec93fd734bd0',//第二周
+        // 'c975d0b1-3990-45b5-82b5-3f60456baec2',//第三周
+    ];
 
     //待领取NFT的钱包账号，钱包账号格式见wallets.json中示例说明
     const wallets = json2Obj(fs.readFileSync(`${__dirname}/wallets.json`).toString());
