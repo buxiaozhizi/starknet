@@ -143,6 +143,7 @@ async function claims({ address, privateKey, weekTask = {} }) {
         'fefacf00-12ab-475f-852b-1c7fea184442',//第一周
         // '9265e0bc-ae7d-4ad2-9c51-ec93fd734bd0',//第二周
         // 'c975d0b1-3990-45b5-82b5-3f60456baec2',//第三周
+        // 'fd6a48d5-699b-427b-ab67-baf237dc7208',//第四周
     ];
 
     //待领取NFT的钱包账号，钱包账号格式见wallets.json中示例说明
