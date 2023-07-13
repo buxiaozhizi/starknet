@@ -7,17 +7,18 @@
     
 因为没有太多精力，因此近期暂不考虑使用其他语言，不喜欢用js的朋友请见谅
 
-最后更新
+最后更新 2023.07.13
 ---
-新增奥德赛第四周任务的学习脚本，第四周任务只需要mint前三周任何一个nft即完成，而从领取网站上看到可以从mint读取的合约数据接口中提取数据，因此使用此接口数据就可以和合约直接交互，简化领取过程。
+新增奥德赛共八周NFTs的claim学习脚本，代码复刻了第四周任务的脚本，仅增加了其余四周的领取id而已。
 
 1. 批量钱包的地址和私钥需要放置在argent/wallets.json文件中，格式参考文件中说明
-2. argent/week4.js代码中有前三周的领取接口的id配置，默认只领第一周的，因此需要全都领取的，需要取消其他两周相关配置的注释
+2. argent/claim.js代码中有所有八周的领取接口的id配置，默认只领第一周的，因此需要全都领取的，需要取消其他周相关配置的注释
 3. 判断已被领取的NFT是哪一周的方法比较繁琐，目前仅按从第一周顺序领取的方式固化了领取流程，因此需要从第一周开始顺序领取，才能正常领取所有的NFT，您可以自行完善相关逻辑
 
 需要用到的三方包：
-1. starknet.js https://www.starknetjs.com/docs/API/
-2. request https://www.npmjs.com/package/request 虽然过时不维护了，但我用顺手了，而且不更新的反倒觉得很安全
+1. ethers https://www.npmjs.com/package/ethers/v/5.7.2
+2. starknet.js https://www.starknetjs.com/docs/API/
+3. request https://www.npmjs.com/package/request 虽然过时不维护了，但我用顺手了，而且不更新的反倒觉得很安全
 
 免责声明
 ---
